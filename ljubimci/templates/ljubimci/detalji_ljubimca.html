@@ -1,0 +1,32 @@
+{% extends "ljubimci/base.html" %}
+
+{% block title %}Detalji: {{ ljubimac.ime_ljubimca }}{% endblock %}
+
+{% block content %}
+<h1>{{ ljubimac.ime_ljubimca }}</h1>
+<p>Vrsta: {{ ljubimac.vrsta_ljubimca }}</p>
+<p>Datum rođenja: {{ ljubimac.datum_rodenja_ljubimca }}</p>
+
+<p>
+    <a href="{% url 'uredi_ljubimca' ljubimac.pk %}">Uredi ljubimca</a> |
+    <a href="{% url 'obrisi_ljubimca' ljubimac.pk %}">Obriši ljubimca</a>
+</p>
+
+<h2>Zdravstveni zapisi</h2>
+<a href="{% url 'novi_zapis' ljubimac.pk %}">Dodaj novi zapis</a>
+<ul>
+    {% for zapis in zapisi %}
+    <li>
+        {{ zapis.datum }} - {{ zapis.opis|truncatechars:50 }}
+        <a href="{% url 'uredi_zapis' zapis.pk %}">Uredi</a>
+        <a href="{% url 'obrisi_zapis' zapis.pk %}">Obriši</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% if graf %}
+<h2>Težina kroz vrijeme</h2>
+<img src="data:image/png;base64,{{ graf }}" alt="Graf težine">
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "ljubimci/base.html" %}
+
+{% block title %}Statistika ljubimaca{% endblock %}
+
+{% block content %}
+<h1>Statistika ljubimaca</h1>
+<img src="data:image/png;base64,{{ graf }}" alt="Graf ljubimaca">
+<br>
+<a href="{% url 'popis_ljubimaca' %}">⬅️ Povratak</a>
+{% endblock %}

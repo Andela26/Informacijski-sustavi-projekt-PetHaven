@@ -1,0 +1,12 @@
+{% extends "ljubimci/base.html" %}
+
+{% block title %}Forma{% endblock %}
+
+{% block content %}
+<h1>Forma</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Spremi">
+</form>
+{% endblock %}

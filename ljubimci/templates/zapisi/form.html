@@ -1,0 +1,15 @@
+{% extends "ljubimci/base.html" %}
+
+{% block title %}Zdravstveni zapis – {{ ljubimac.ime_ljubimca }}{% endblock %}
+
+{% block content %}
+<h1>Zdravstveni zapis za {{ ljubimac.ime_ljubimca }}</h1>
+
+<form method="post" class="form-card">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Spremi" class="button">
+</form>
+
+<a href="{% url 'detalji_ljubimca' ljubimac.pk %}" class="button secondary mt-2">⬅️ Natrag</a>
+{% endblock %}

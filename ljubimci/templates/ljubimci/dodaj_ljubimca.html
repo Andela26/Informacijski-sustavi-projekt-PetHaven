@@ -1,0 +1,22 @@
+{% extends "ljubimci/base.html" %}
+
+{% block title %}Dodaj ljubimca{% endblock %}
+
+{% block content %}
+<h1>Dodaj ljubimca</h1>
+
+<form method="POST" class="form-card">
+    {% csrf_token %}
+
+    <label for="ime_ljubimca">Ime</label>
+    <input type="text" id="ime_ljubimca" name="ime_ljubimca" required>
+
+    <label for="vrsta_ljubimca">Vrsta</label>
+    <input type="text" id="vrsta_ljubimca" name="vrsta_ljubimca" required>
+
+    <label for="datum_rodenja_ljubimca">Datum rođenja</label>
+    <input type="date" id="datum_rodenja_ljubimca" name="datum_rodenja_ljubimca" required>
+
+    <input type="submit" value="Spremi" class="button">
+</form>
+{% endblock %}

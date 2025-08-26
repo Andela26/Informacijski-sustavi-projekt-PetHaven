@@ -1,0 +1,14 @@
+{% extends "ljubimci/base.html" %}
+
+{% block title %}Popis ljubimaca{% endblock %}
+
+{% block content %}
+<h1>Popis ljubimaca</h1>
+<ul>
+    {% for ljubimac in ljubimci %}
+    <li>
+        <a href="{% url 'detalji_ljubimca' ljubimac.pk %}">{{ ljubimac.ime_ljubimca }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

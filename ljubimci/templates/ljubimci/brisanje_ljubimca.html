@@ -1,0 +1,10 @@
+{% extends "ljubimci/base.html" %}
+{% block content %}
+<h1>Obriši ljubimca: {{ object.ime_ljubimca }}</h1>
+<p>Jeste li sigurni da želite obrisati ovog ljubimca?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Da, obriši</button>
+    <a href="{% url 'detalji_ljubimca' object.pk %}">Odustani</a>
+</form>
+{% endblock %}
